@@ -43,7 +43,7 @@ body {
     height: 0px;
 }
 
-#pixel_data {
+#ascii_output {
     text-align: justify;
     font-family: monospace;
     font-weight: 1;
