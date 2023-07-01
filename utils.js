@@ -63,7 +63,3 @@ function grayscaleConversion(pixelData) {
 		pixelData[i + 2] = grayscale;
 	}
 }
-
-function debug(array, callback, getAsciiCharacter) {
-	callback(array.map(value => getAsciiCharacter(value)))
-}
