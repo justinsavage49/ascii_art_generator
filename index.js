@@ -16,7 +16,6 @@ function main() {
 	readImage(asciiPairs[0])
 	.then((scaledArray) => {
 		alternate_select.addEventListener("change", () => {
-			console.log("here")
 			toggleButton(alternate_select.value);
 			readImage(alternate_select.value === "on" ? asciiPairs[1] : asciiPairs[0], scaledArray);
 		});
