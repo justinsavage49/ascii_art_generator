@@ -7,10 +7,17 @@
     <body>
         <div class="main_container">
             <h1 id="main_heading">Ascii Art Generator</h1>
+            <div id="sub_heading_wrapper">
+                <input type="file" id="image_input" accept="image/png, image/jpg">
+                <div id="input_wrapper">
+                    <p1 id="sub_heading">Alternative Character Set</br>(must reselect photo)</p1>
+                    <input id="alternate_select" type="checkbox" value="off" autocomplete="off"/>
+                </div>
+            </div>
             <img id="image_source"/>
             <canvas id="canvas"></canvas>
             <div id="pixel_data"></div>
-            <input type="file" id="image_input" accept="image/png, image/jpg">
+            
         </div>
     </body>
     <script src="utils.js"></script>

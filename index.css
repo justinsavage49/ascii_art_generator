@@ -8,7 +8,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
     border-radius: 15px;
     min-height: 100vh;
     width: 1500px;
@@ -17,10 +16,20 @@ body {
     background-color: rgb(0, 0, 0);
 }
 
+#sub_heading_wrapper {
+    display: flex;
+    gap: 100px;
+}
+
 #main_heading {
     color: rgb(255, 255, 255);
     font-size: 40px;
     font-weight: 900;
+}
+
+#input_wrapper {
+    display: flex;
+    gap: 20px;
 }
 
 #image_input {
@@ -50,5 +59,6 @@ body {
     font-size: 10px;
     white-space: pre;
     color: white;
+    margin-top: 20px;
     margin-bottom: 55px;
 }
