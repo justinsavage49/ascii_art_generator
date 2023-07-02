@@ -1,17 +1,17 @@
-function invertArray(array, lineBreak=false) {
+function invertArray(array, lineBreak = false) {
 	const a = [];
 
-	for(x = 0; x < array[0].length; x++) {
+	for (x = 0; x < array[0].length; x++) {
 		const b = [];
 
-		for(y = 0; y < array.length; y++) {
+		for (y = 0; y < array.length; y++) {
 			b.push(array[y][x]);
 		}
 
-		if(lineBreak) { 
-			b.push("\n"); 
+		if (lineBreak) {
+			b.push("\n");
 		}
-		
+
 		a.push(b);
 	}
 
@@ -24,20 +24,20 @@ function scalePixels(array, xLength, yLength, dimension, masterScale) {
 	let index = 0;
 	const a = [];
 
-	for(x = 0; x < xLength; x++) {
+	for (x = 0; x < xLength; x++) {
 		const b = [];
-		
-		for(y = 0; y < yLength; y++) {
+
+		for (y = 0; y < yLength; y++) {
 			values += array[x][y];
 			index += 1;
 
-			if(index == scale) {
+			if (index == scale) {
 				const avg = Math.floor(values / index);
 				b.push(avg);
 				values = 0;
 				index = 0;
 			}
-			// Adds closer scale but distorts image during y scaling. 
+			// Adds closer scale but distorts image during y scaling.
 			// else if (index + y >= yLength) {
 			// 	const avg = Math.floor(values / index);
 			// 	b.push(avg);
