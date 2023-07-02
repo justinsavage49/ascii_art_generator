@@ -37,11 +37,6 @@ function scalePixels(array, xLength, yLength, dimension, masterScale) {
 				values = 0;
 				index = 0;
 			}
-			// Adds closer scale but distorts image during y scaling.
-			// else if (index + y >= yLength) {
-			// 	const avg = Math.floor(values / index);
-			// 	b.push(avg);
-			// }
 		}
 
 		a.push(b);
@@ -62,4 +57,31 @@ function grayscaleConversion(pixelData) {
 		pixelData[i + 1] = grayscale;
 		pixelData[i + 2] = grayscale;
 	}
+}
+
+function displayAscii() {
+	const pixelDataElement = document.getElementById("pixel_data");
+	const asciiString = localStorage.getItem("asciiString");
+	const asciiArray = asciiString.split("");
+	const brightnessScale = 255 / (asciiArray.length - 1);
+	asciiArray.reverse();
+	const scaledArray = JSON.parse(localStorage.getItem("scaledArrayString"));
+
+	const getAsciiCharacter = function (brightness) {
+		if (brightness === "\n") {
+			return brightness;
+		}
+		const index = Math.floor(brightness / brightnessScale);
+
+		return asciiArray[index];
+	};
+
+	const asciiOutput = [];
+	for (x = 0; x < scaledArray.length; x++) {
+		for (y = 0; y < scaledArray[0].length; y++) {
+			asciiOutput.push(getAsciiCharacter(scaledArray[x][y]));
+		}
+	}
+
+	pixelDataElement.textContent = asciiOutput.join("");
 }
