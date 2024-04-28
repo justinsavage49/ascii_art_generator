@@ -21,6 +21,10 @@ body {
 	gap: 100px;
 }
 
+#sub_heading {
+	color: white; 
+}
+
 #main_heading {
 	color: rgb(255, 255, 255);
 	font-size: 40px;
@@ -29,7 +33,7 @@ body {
 
 #input_wrapper {
 	display: flex;
-	gap: 20px;
+	gap: 22px;
 }
 
 #image_input {

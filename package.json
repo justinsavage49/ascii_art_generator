@@ -1,0 +1,14 @@
+{
+  "name": "ascii_art_generator",
+  "version": "1.0.0",
+  "description": "Create ascii art with your photos!\r  - Accepts jpg/png\r  - Different ascii options",
+  "main": "index.js",
+  "scripts": {
+    "serve": "npx http-server src -a 127.0.0.1 -p 8080"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "14.1.1"
+  }
+}

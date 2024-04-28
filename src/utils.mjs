@@ -1,10 +1,10 @@
-function invertArray(array, lineBreak = false) {
+export function invertArray(array, lineBreak = false) {
 	const a = [];
 
-	for (x = 0; x < array[0].length; x++) {
+	for (let x = 0; x < array[0].length; x++) {
 		const b = [];
 
-		for (y = 0; y < array.length; y++) {
+		for (let y = 0; y < array.length; y++) {
 			b.push(array[y][x]);
 		}
 
@@ -18,16 +18,16 @@ function invertArray(array, lineBreak = false) {
 	return a;
 }
 
-function scalePixels(array, xLength, yLength, dimension, masterScale) {
+export function scalePixels(array, xLength, yLength, dimension, masterScale) {
 	const scale = Math.round(dimension / masterScale);
 	let values = 0;
 	let index = 0;
 	const a = [];
 
-	for (x = 0; x < xLength; x++) {
+	for (let x = 0; x < xLength; x++) {
 		const b = [];
 
-		for (y = 0; y < yLength; y++) {
+		for (let y = 0; y < yLength; y++) {
 			values += array[x][y];
 			index += 1;
 
@@ -45,7 +45,7 @@ function scalePixels(array, xLength, yLength, dimension, masterScale) {
 	return a;
 }
 
-function grayscaleConversion(pixelData) {
+export function grayscaleConversion(pixelData) {
 	for (let i = 0; i < pixelData.length; i += 4) {
 		const r = pixelData[i];
 		const g = pixelData[i + 1];
@@ -59,7 +59,8 @@ function grayscaleConversion(pixelData) {
 	}
 }
 
-function displayAscii() {
+export function showCanvas()
+{
 	const pixelDataElement = document.getElementById("pixel_data");
 	const asciiString = localStorage.getItem("asciiString");
 	const asciiArray = asciiString.split("");
@@ -67,8 +68,10 @@ function displayAscii() {
 	asciiArray.reverse();
 	const scaledArray = JSON.parse(localStorage.getItem("scaledArrayString"));
 
-	const getAsciiCharacter = function (brightness) {
-		if (brightness === "\n") {
+	// Map pixel grey value to a brightness of sorted ascii characters in the ascii string.
+	const getAsciiCharacter = (brightness) => {
+		if (brightness === "\n")
+		{
 			return brightness;
 		}
 		const index = Math.floor(brightness / brightnessScale);
@@ -77,8 +80,10 @@ function displayAscii() {
 	};
 
 	const asciiOutput = [];
-	for (x = 0; x < scaledArray.length; x++) {
-		for (y = 0; y < scaledArray[0].length; y++) {
+	for (let x = 0; x < scaledArray.length; x++)
+	{
+		for (let y = 0; y < scaledArray[0].length; y++)
+		{
 			asciiOutput.push(getAsciiCharacter(scaledArray[x][y]));
 		}
 	}
